@@ -71,21 +71,33 @@ text-decoration: none;
   padding: 0px 30px 100px 30px;
 
 }
-.container img {
-  max-width: 100%;
-  height: 200px;
+.image {
   overflow: hidden;
   position: relative;
+}
+img {
+  height: 200px;
+  width: 100%;
 }
 
 .add-cart {
   position: absolute;
   width: 100%;
-  background-color: darkgray;
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
+  background-color: rgb(148, 147, 147);
+  transition: all 0.5s ease-in-out;
+  opacity:0;
   cursor: pointer;
   text-align: center;
+}
+
+.image:hover .cart1,
+.image:hover .cart2,
+.image:hover .cart3,
+.image:hover .cart4 {
+   bottom: 50px;
+   opacity: 1;
+   padding: 10px;
+   text-decoration: none;
 }
 
 
