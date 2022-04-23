@@ -58,14 +58,24 @@ setItems(product);
 }
 
 function setItems(product) {
-  let cartItems = localStorage.getItem('productInCart');
+  let cartItems = localStorage.getItem('productsInCart');
   cartItems = JSON.parse(cartItems);
-  console.log("My items is" , cartItems);
-    product.inCart = 1;
-
-    cartItems = {
+    
+  if(cartItems != null) {
+    
+    if(cartItems[product.tag] == undefined) {
+        cartItems = {
+            ...cartItems,
+            [product.tag]: product
+        }
+    }
+   cartItems[product.tag].inCart += 1;
+    } else { 
+        product.inCart = 1;
+        cartItems = {
         [product.tag]: product
     }
-    localStorage.setItem("productInCart" , JSON.stringify(cartItems));
+  }
+    localStorage.setItem("productsInCart" , JSON.stringify(cartItems));
 }
 onLoadCarts();
