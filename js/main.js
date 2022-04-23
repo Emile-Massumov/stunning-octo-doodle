@@ -54,11 +54,13 @@ if(productNumbers) {
     localStorage.setItem('cartNumbers',1);
     document.querySelector('.cart span').textContent = 1;
 }
-setItem(product);
+setItems(product);
 }
 
-function setItem(product) {
-   
+function setItems(product) {
+  let cartItems = localStorage.getItem('productInCart');
+  cartItems = JSON.parse(cartItems);
+  console.log("My items is" , cartItems);
     product.inCart = 1;
 
     cartItems = {
