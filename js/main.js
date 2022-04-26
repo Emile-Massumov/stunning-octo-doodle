@@ -96,4 +96,27 @@ function totalCost(product) {
     }
 }
 
+function displayCart () {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    let productsContainer = document.querySelector(".products");
+
+    console.log("cartItems");
+
+    if(cartItems && productsContainer) {
+    productsContainer.innerHTML = '';
+    Object.values(cartItems).map(item => {
+        productsContainer.innerHTML += `
+        <div class="product">
+        <ion-icon name="close-circle-outline"></ion-icon>
+        <img src="./images/${item.tag}.jpg">
+        <span>${item.name}</span>
+        </div>
+        <div class="price">${item.price}</div>
+         `
+    });
+    }
+} 
+
 onLoadCarts();
+displayCart();
